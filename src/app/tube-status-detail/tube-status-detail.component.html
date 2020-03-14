@@ -1,0 +1,8 @@
+<div *ngIf="status$">
+    <div *ngFor="let status of status$ | async">
+        <h2>{{status.name}}</h2>
+        <h2>{{ status.lineStatuses[0].statusSeverityDescription}}</h2>
+    </div>
+    
+<button (click)="goBack()">Go back</button>
+</div>

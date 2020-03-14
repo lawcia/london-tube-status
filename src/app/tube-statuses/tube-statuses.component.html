@@ -1,0 +1,6 @@
+<div *ngFor="let status of statuses$ | async">
+    <a routerLink="/line/{{ status.id }}" routerLinkActive="router-link-active">
+    <span class="name {{status.id}}">{{ status.name }}</span>
+    {{ status.lineStatuses[0].statusSeverityDescription}}
+    </a>
+</div>
