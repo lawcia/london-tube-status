@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class TubeStatusesComponent implements OnInit {
 
   ngOnInit(): void {
-    this.getTubeStatuses()
+    this.getTubeStatuses();
   }
 
   statuses$: Observable<Object>;

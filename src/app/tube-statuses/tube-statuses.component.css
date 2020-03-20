@@ -1,9 +1,7 @@
-.Line {
-    display: flex;
-}
 
 div {
     margin: 16px;
+    width: 300px;
 }
 
 a {

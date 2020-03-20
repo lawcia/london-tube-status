@@ -11,6 +11,7 @@ import { TubeService } from './tube.service';
 import { TubeStatusesComponent } from './tube-statuses/tube-statuses.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TubeStatusDetailComponent } from './tube-status-detail/tube-status-detail.component';
+import { MapComponent } from './map/map.component';
 
 
 
@@ -19,7 +20,8 @@ import { TubeStatusDetailComponent } from './tube-status-detail/tube-status-deta
     AppComponent,
     TubeStatusesComponent,
     DashboardComponent,
-    TubeStatusDetailComponent
+    TubeStatusDetailComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
