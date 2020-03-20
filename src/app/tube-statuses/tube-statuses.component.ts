@@ -26,7 +26,7 @@ export class TubeStatusesComponent implements OnInit {
   toggleMessage(status): void {
     if(status.lineStatuses[0].hasOwnProperty('disruption')){
       this.showMessage = !this.showMessage;
-      this.selectedId = status.id;
+      this.selectedId = this.showMessage? status.id: undefined;
     }
   }
 }
