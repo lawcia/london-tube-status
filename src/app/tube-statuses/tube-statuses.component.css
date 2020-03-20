@@ -1,11 +1,19 @@
-
 .name {
     color: white;
     text-shadow: 1px 1px #333333;
 }
 
+.plus:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.warn {
+    background-color: rgb(231, 220, 154);
+}
 .status {
-    background-color: rgb(223, 223, 100);
+    display: flex;
+    justify-content: space-between;
 }
 
 .bakerloo {

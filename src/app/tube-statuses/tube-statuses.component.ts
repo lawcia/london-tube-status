@@ -14,11 +14,19 @@ export class TubeStatusesComponent implements OnInit {
   }
 
   statuses$: Observable<Object>;
+  showMessage: boolean = false;
+  selectedId: string;
 
   constructor(private tubeService: TubeService){}
 
-  getTubeStatuses() {
+  getTubeStatuses(): void {
     this.statuses$ = this.tubeService.getTubeStatuses();
   }
 
+  toggleMessage(status): void {
+    if(status.lineStatuses[0].hasOwnProperty('disruption')){
+      this.showMessage = !this.showMessage;
+      this.selectedId = status.id;
+    }
+  }
 }

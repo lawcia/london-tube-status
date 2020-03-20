@@ -1,9 +1,23 @@
-<div class="row" *ngFor="let status of statuses$ | async">
-    <div class="col name {{status.id}} px-3 py-1 border">
-        {{ status.name }}
+<div *ngFor="let status of statuses$ | async">
+    <div class="row"  (click)="toggleMessage(status)" [ngClass]="{'plus': status.lineStatuses[0].disruption}">
+        <div class="col name {{status.id}} px-3 py-1 border">
+            {{ status.name }}
+        </div>
+        <div class="col px-3 py-1 border status" [ngClass]="{'warn': status.lineStatuses[0].statusSeverityDescription !='Good Service'}">
+            {{ status.lineStatuses[0].statusSeverityDescription}}
+            <a *ngIf="status.lineStatuses[0].disruption && showMessage==false">
+                <i  class="fas fa-plus"></i>
+            </a>
+            <a *ngIf="showMessage==true && status.id==selectedId">
+                <i class="fas fa-minus"></i>
+            </a>
+        </div>
     </div>
-    <div class="col px-3 py-1 border" [ngClass]="{'status': status.lineStatuses[0].statusSeverityDescription !='Good Service'}">
-        {{ status.lineStatuses[0].statusSeverityDescription}}
-        <i class="fas fa-plus"></i>
-    </div>
+        <div class="row" *ngIf = "showMessage==true && status.id==selectedId">
+            <div class="col px-3 py-1 border warn">
+                {{ status.lineStatuses[0].disruption.description}}
+            </div>
+        </div>
+   
 </div>
+
