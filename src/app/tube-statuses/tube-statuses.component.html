@@ -1,6 +1,9 @@
-<div *ngFor="let status of statuses$ | async">
-    <a routerLink="/line/{{ status.id }}" routerLinkActive="router-link-active">
-    <span class="name {{status.id}}">{{ status.name }}</span>
-    {{ status.lineStatuses[0].statusSeverityDescription}}
-    </a>
+<div class="row" *ngFor="let status of statuses$ | async">
+    <div class="col name {{status.id}} px-3 py-1 border">
+        {{ status.name }}
+    </div>
+    <div class="col px-3 py-1 border" [ngClass]="{'status': status.lineStatuses[0].statusSeverityDescription !='Good Service'}">
+        {{ status.lineStatuses[0].statusSeverityDescription}}
+        <i class="fas fa-plus"></i>
+    </div>
 </div>

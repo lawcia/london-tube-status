@@ -1,22 +1,11 @@
 
-div {
-    margin: 16px;
-    width: 300px;
-}
-
-a {
-    text-decoration: none;
-}
-
-
-.router-link-active {
-    color: orange;
-}
-
 .name {
     color: white;
-    padding: 8px;
-    width: 300px;
+    text-shadow: 1px 1px #333333;
+}
+
+.status {
+    background-color: rgb(223, 223, 100);
 }
 
 .bakerloo {
