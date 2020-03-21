@@ -11,8 +11,21 @@ export class MapComponent implements OnInit {
   private map: any;
   private layerGroup: any;
   private latlong: any[];
-  private selectedLine: number[];
+  private selectedLine: string;
   private polyline: any;
+  private tubeColours: object = {
+    'bakerloo': 'rgb(178, 99, 0)',
+    'central': 'rgb(220,36,31)',
+    'circle': 'rgb(255,211,41)',
+    'district': 'rgb(0,125,50)',
+    'hammersmith-city': 'rgb(244,169,190)',
+    'jubilee': 'rgb(161,165,167)',
+    'metropolitan': 'rgb(155,0,88)',
+    'northern': 'rgb(0, 0, 0)',
+    'piccadilly': 'rgb(0, 25, 168)',
+    'victoria': 'rgb(0, 152, 216)',
+    'waterloo-city': 'rgb(147,206,186)'
+  }
 
   constructor(private tubeService: TubeService) {
     tubeService.lineData$
@@ -42,8 +55,8 @@ export class MapComponent implements OnInit {
      this.layerGroup.clearLayers();
      this.layerGroup = L.layerGroup().addTo(this.map);
      this.polyline = L.polyline(this.latlong, {
-      color: 'blue',
-      weight: 3,
+      color: this.tubeColours[this.selectedLine],
+      weight: 4,
       opacity: 1,
       smoothFactor: 1
      }).addTo(this.layerGroup);
@@ -57,6 +70,7 @@ export class MapComponent implements OnInit {
     try{
       //this.selectedLine = JSON.parse(lineData['lineStrings'])[0];
       //console.log(JSON.parse(lineData['lineStrings']))
+      this.selectedLine = lineData['lineId'];
       this.latlong = lineData['lineStrings'].map((section) => { 
         let sectionArray = JSON.parse(section)
         return sectionArray[0].map((coord) => [coord[1], coord[0]])
