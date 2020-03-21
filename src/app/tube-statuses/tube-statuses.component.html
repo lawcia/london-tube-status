@@ -1,5 +1,5 @@
 <div *ngFor="let status of statuses$ | async">
-    <div class="row"  (click)="toggleMessage(status)" [ngClass]="{'plus': status.lineStatuses[0].disruption}">
+    <div class="row"  (click)="getLineData(status)" [ngClass]="{'plus': status.lineStatuses[0].disruption}">
         <div class="col name {{status.id}} px-3 py-1 border">
             {{ status.name }}
         </div>

@@ -23,10 +23,15 @@ export class TubeStatusesComponent implements OnInit {
     this.statuses$ = this.tubeService.getTubeStatuses();
   }
 
-  toggleMessage(status): void {
+  getLineData(status): void {
     if(status.lineStatuses[0].hasOwnProperty('disruption')){
       this.showMessage = !this.showMessage;
       this.selectedId = this.showMessage? status.id: undefined;
+      this.tubeService.getTubeLineString(status.id)
+      .subscribe(lineData => {
+        this.tubeService.setLineData(lineData)});
+      ;
+      
     }
   }
 }
